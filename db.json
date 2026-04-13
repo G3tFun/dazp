@@ -1,0 +1,9 @@
+{
+  "libraries": {
+    "time": {
+      "version": "1.0.0",
+      "description": "Базовая библеотека для работы со временем.",
+      "download_url": "https://raw.githubusercontent.com/G3tFun/dazaw-lib/refs/heads/main/time.dazl"
+    }
+  }
+}
