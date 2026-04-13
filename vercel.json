@@ -1,6 +1,9 @@
 {
   "version": 2,
   "rewrites": [
-    { "source": "/api/package/:name", "destination": "/api" }
+    { 
+      "source": "/api/package/:name", 
+      "destination": "/api?name=:name" 
+    }
   ]
 }
