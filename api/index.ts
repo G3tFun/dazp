@@ -5,13 +5,16 @@ export const config = { runtime: 'edge' };
 export default async function handler(req: Request) {
   const url = new URL(req.url);
   const parts = url.pathname.split('/').filter(Boolean);
-  const pkgName = parts[0];
+  
+  // Берем ПОСЛЕДНИЙ элемент пути (это будет название пакета)
+  // Если зашли на /api/package/time, pkgName станет "time"
+  const pkgName = parts[parts.length - 1];
 
   // Ищем пакет в db.json
   const library = db.libraries[pkgName as keyof typeof db.libraries];
 
   // 1. Сценарий ОШИБКИ (404)
-  if (!library) {
+  if (!library || pkgName === "api" || pkgName === "package") {
     const errorResponse = {
       "status": "error",
       "error_code": 404,
